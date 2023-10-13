@@ -2,6 +2,7 @@ package com.br.hexagonal.domain.model;
 
 import lombok.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -15,4 +16,5 @@ public class Developer {
     private String nameDeveloper;
     private String email;
     private String positionLevel;
+    private List<Task> taskList;
 }

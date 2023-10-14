@@ -1,4 +1,4 @@
-package com.br.hexagonal.domain.model;
+package com.br.hexagonal.application.domain;
 
 import lombok.*;
 

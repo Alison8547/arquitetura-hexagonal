@@ -2,7 +2,7 @@ package com.br.hexagonal.adapters.inbound.mapper;
 
 import com.br.hexagonal.adapters.inbound.dto.request.DeveloperRequest;
 import com.br.hexagonal.adapters.inbound.dto.response.DeveloperResponse;
-import com.br.hexagonal.adapters.outbound.entity.DeveloperEntity;
+import com.br.hexagonal.adapters.inbound.entity.DeveloperEntity;
 import com.br.hexagonal.application.domain.Developer;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;

@@ -1,4 +1,4 @@
-package com.br.hexagonal.adapters.outbound.entity;
+package com.br.hexagonal.adapters.inbound.entity;
 
 import lombok.*;
 

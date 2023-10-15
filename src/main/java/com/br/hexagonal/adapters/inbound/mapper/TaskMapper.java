@@ -2,7 +2,7 @@ package com.br.hexagonal.adapters.inbound.mapper;
 
 import com.br.hexagonal.adapters.inbound.dto.request.TaskRequest;
 import com.br.hexagonal.adapters.inbound.dto.response.TaskResponse;
-import com.br.hexagonal.adapters.outbound.entity.TaskEntity;
+import com.br.hexagonal.adapters.inbound.entity.TaskEntity;
 import com.br.hexagonal.application.domain.Task;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;

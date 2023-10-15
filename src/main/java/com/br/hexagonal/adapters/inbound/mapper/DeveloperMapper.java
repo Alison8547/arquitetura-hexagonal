@@ -1,8 +1,8 @@
-package com.br.hexagonal.entrypoint.rest.mapper;
+package com.br.hexagonal.adapters.inbound.mapper;
 
 import com.br.hexagonal.application.domain.Developer;
-import com.br.hexagonal.entrypoint.rest.dto.request.DeveloperRequest;
-import com.br.hexagonal.entrypoint.rest.dto.response.DeveloperResponse;
+import com.br.hexagonal.adapters.inbound.dto.request.DeveloperRequest;
+import com.br.hexagonal.adapters.inbound.dto.response.DeveloperResponse;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;

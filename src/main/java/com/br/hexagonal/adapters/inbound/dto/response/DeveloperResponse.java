@@ -1,4 +1,4 @@
-package com.br.hexagonal.entrypoint.rest.dto.response;
+package com.br.hexagonal.adapters.inbound.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -18,8 +18,12 @@ public class DeveloperMapper {
         return mapper.map(developerRequest, DeveloperEntity.class);
     }
 
-    public DeveloperResponse toDeveloperResponse(DeveloperEntity developerEntity) {
-        return mapper.map(developerEntity, DeveloperResponse.class);
+    public Developer toDeveloper(DeveloperRequest developerRequest) {
+        return mapper.map(developerRequest, Developer.class);
+    }
+
+    public DeveloperResponse toDeveloperResponse(Developer developer) {
+        return mapper.map(developer, DeveloperResponse.class);
     }
 
     public DeveloperEntity developerToDeveloperEntity(Developer developer) {

@@ -24,7 +24,7 @@ public class TaskEntity implements Serializable {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @Column(name = "title")
@@ -42,7 +42,7 @@ public class TaskEntity implements Serializable {
     @Column(name = "status")
     private Boolean status;
 
-    @Column(name = "id_developer", nullable = false, updatable = false)
+    @Column(name = "id_developer", insertable = false, updatable = false)
     private UUID idDeveloper;
 
     @ManyToOne

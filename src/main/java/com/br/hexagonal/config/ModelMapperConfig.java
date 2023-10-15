@@ -1,4 +1,4 @@
-package com.br.hexagonal.adapters.inbound.mapper.config;
+package com.br.hexagonal.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

@@ -6,6 +6,7 @@ import com.br.hexagonal.adapters.inbound.mapper.DeveloperMapper;
 import com.br.hexagonal.application.domain.Developer;
 import com.br.hexagonal.application.ports.in.CreateDeveloperUserCasePort;
 import com.br.hexagonal.application.ports.in.FindDeveloperUserCasePort;
+import com.br.hexagonal.application.ports.in.UpdateDeveloperUserCasePort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,7 @@ public class DeveloperController {
 
     private final CreateDeveloperUserCasePort createDeveloperPort;
     private final FindDeveloperUserCasePort findDeveloperUserCasePort;
+    private final UpdateDeveloperUserCasePort updateDeveloperUserCasePort;
     private final DeveloperMapper mapper;
 
     @PostMapping("/create-developer")
@@ -37,6 +39,12 @@ public class DeveloperController {
         Optional<Developer> developer = findDeveloperUserCasePort.findDeveloper(id);
         return developer.map(value -> new ResponseEntity<>(mapper.toDeveloperResponse(value), HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @PutMapping("/update-developer/{id}")
+    public ResponseEntity<DeveloperResponse> updateDeveloper(@PathVariable(name = "id") UUID id, @RequestBody @Valid DeveloperRequest developerRequest) {
+        Developer developer = mapper.toDeveloper(developerRequest);
+        return new ResponseEntity<>(mapper.toDeveloperResponse(updateDeveloperUserCasePort.updateDeveloper(id, developer)), HttpStatus.OK);
     }
 
 }

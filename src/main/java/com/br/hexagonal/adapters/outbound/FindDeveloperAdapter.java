@@ -21,9 +21,13 @@ public class FindDeveloperAdapter implements FindDeveloperPort {
 
     @Override
     public Optional<Developer> findDeveloper(UUID id) {
-        DeveloperEntity developerEntity = developerRepository.findById(id)
-                .orElseThrow(() -> new BusinessException("Developer not found!"));
+        DeveloperEntity developerEntity = findDeveloperDB(id);
 
         return Optional.ofNullable(mapper.developerEntityToDeveloper(developerEntity));
+    }
+
+    public DeveloperEntity findDeveloperDB(UUID id) {
+        return developerRepository.findById(id)
+                .orElseThrow(() -> new BusinessException("Developer not found!"));
     }
 }

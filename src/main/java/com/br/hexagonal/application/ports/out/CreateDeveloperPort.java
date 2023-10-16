@@ -4,5 +4,5 @@ import com.br.hexagonal.application.domain.Developer;
 
 public interface CreateDeveloperPort {
 
-    Developer save(Developer developer);
+    Developer createDeveloper(Developer developer);
 }

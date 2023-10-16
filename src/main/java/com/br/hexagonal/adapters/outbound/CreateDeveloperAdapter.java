@@ -23,7 +23,7 @@ public class CreateDeveloperAdapter implements CreateDeveloperPort {
 
     @Override
     @Transactional
-    public Developer save(Developer developer) {
+    public Developer createDeveloper(Developer developer) {
         DeveloperEntity developerEntity = mapper.developerToDeveloperEntity(developer);
         developerRepository.save(developerEntity);
         log.info("Developer create success!");

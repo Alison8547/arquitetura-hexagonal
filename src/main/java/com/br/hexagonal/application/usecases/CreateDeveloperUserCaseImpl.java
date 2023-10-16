@@ -13,6 +13,6 @@ public class CreateDeveloperUserCaseImpl implements CreateDeveloperUserCasePort 
 
     @Override
     public Developer createDeveloper(Developer developer) {
-        return createDeveloperPort.save(developer);
+        return createDeveloperPort.createDeveloper(developer);
     }
 }

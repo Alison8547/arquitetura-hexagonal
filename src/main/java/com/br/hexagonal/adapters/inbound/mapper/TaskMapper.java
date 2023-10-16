@@ -22,8 +22,11 @@ public class TaskMapper {
         return mapper.map(taskRequest, Task.class);
     }
 
-    public TaskResponse toTaskResponse(TaskEntity taskEntity) {
+    public TaskResponse toTaskEntityResponse(TaskEntity taskEntity) {
         return mapper.map(taskEntity, TaskResponse.class);
+    }
+    public TaskResponse toTaskResponse(Task task) {
+        return mapper.map(task, TaskResponse.class);
     }
 
     public TaskEntity taskToTaskEntity(Task task) {

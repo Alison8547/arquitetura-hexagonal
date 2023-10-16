@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 @Data
@@ -13,7 +15,12 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class TaskRequest {
 
+    @NotBlank
     private String title;
+
+    @NotBlank
     private String description;
+
+    @Future
     private LocalDateTime deadline;
 }

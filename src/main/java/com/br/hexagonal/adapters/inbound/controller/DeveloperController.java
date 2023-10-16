@@ -5,16 +5,16 @@ import com.br.hexagonal.adapters.inbound.dto.response.DeveloperResponse;
 import com.br.hexagonal.adapters.inbound.mapper.DeveloperMapper;
 import com.br.hexagonal.application.domain.Developer;
 import com.br.hexagonal.application.ports.in.CreateDeveloperUserCasePort;
+import com.br.hexagonal.application.ports.in.FindDeveloperUserCasePort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
+import java.util.UUID;
 
 @Validated
 @RestController
@@ -23,12 +23,20 @@ import javax.validation.Valid;
 public class DeveloperController {
 
     private final CreateDeveloperUserCasePort createDeveloperPort;
+    private final FindDeveloperUserCasePort findDeveloperUserCasePort;
     private final DeveloperMapper mapper;
 
     @PostMapping("/create-developer")
     public ResponseEntity<DeveloperResponse> createDeveloper(@Valid @RequestBody DeveloperRequest developerRequest) {
         Developer developer = mapper.toDeveloper(developerRequest);
         return new ResponseEntity<>(mapper.toDeveloperResponse(createDeveloperPort.createDeveloper(developer)), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/find-developer/{id}")
+    public ResponseEntity<DeveloperResponse> findDeveloper(@PathVariable(name = "id") UUID id) {
+        Optional<Developer> developer = findDeveloperUserCasePort.findDeveloper(id);
+        return developer.map(value -> new ResponseEntity<>(mapper.toDeveloperResponse(value), HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
 }

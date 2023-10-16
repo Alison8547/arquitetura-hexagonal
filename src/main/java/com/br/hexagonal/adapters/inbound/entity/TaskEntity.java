@@ -1,6 +1,7 @@
 package com.br.hexagonal.adapters.inbound.entity;
 
 import lombok.*;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.Serial;
@@ -24,6 +25,7 @@ public class TaskEntity implements Serializable {
 
     @Id
     @Column(name = "id")
+    @Type(type = "uuid-char")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 

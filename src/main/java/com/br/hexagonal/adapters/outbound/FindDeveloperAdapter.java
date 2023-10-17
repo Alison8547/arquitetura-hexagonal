@@ -30,4 +30,9 @@ public class FindDeveloperAdapter implements FindDeveloperPort {
         return developerRepository.findById(id)
                 .orElseThrow(() -> new BusinessException("Developer not found!"));
     }
+
+    public DeveloperEntity findDevEmail(String emailDev) {
+        return developerRepository.findByEmail(emailDev)
+                .orElseThrow(() -> new BusinessException("Email Developer not found!"));
+    }
 }

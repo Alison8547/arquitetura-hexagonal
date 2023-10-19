@@ -4,6 +4,6 @@ import com.br.hexagonal.application.domain.Task;
 
 import java.util.UUID;
 
-public interface TaskFinishedUseCasePort {
+public interface TaskFinishedUserCasePort {
     Task finishedTask(UUID idTask);
 }

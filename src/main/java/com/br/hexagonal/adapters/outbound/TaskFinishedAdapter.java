@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.UUID;
 
 @Log4j2
@@ -28,6 +30,9 @@ public class TaskFinishedAdapter implements TaskFinishedPort {
 
         if (taskEntity.getDeveloper() == null)
             throw new BusinessException("Task cannot be completed because there is no one linked to it!");
+
+        if (taskEntity.getDeadline().isBefore(LocalDateTime.now(ZoneId.of("America/Sao_Paulo"))))
+            throw new BusinessException("Passed the time limit!");
 
         taskEntity.setStatus(FINISHED);
         taskRepository.save(taskEntity);

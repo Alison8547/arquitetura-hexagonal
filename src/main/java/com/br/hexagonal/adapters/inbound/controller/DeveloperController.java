@@ -62,7 +62,7 @@ public class DeveloperController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @Operation(summary = "Update Developer", description = "Update developer in the databas")
+    @Operation(summary = "Update Developer", description = "Update developer in the database")
     @ApiResponses(
             value = {
                     @ApiResponse(responseCode = "200", description = "Edited successfully"),

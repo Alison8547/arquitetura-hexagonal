@@ -1,6 +1,7 @@
 package com.br.hexagonal.adapters.inbound.mapper;
 
 import com.br.hexagonal.adapters.inbound.dto.request.TaskRequest;
+import com.br.hexagonal.adapters.inbound.dto.response.TaskDevResponse;
 import com.br.hexagonal.adapters.inbound.dto.response.TaskResponse;
 import com.br.hexagonal.adapters.inbound.entity.TaskEntity;
 import com.br.hexagonal.application.domain.Task;
@@ -25,6 +26,7 @@ public class TaskMapper {
     public TaskResponse toTaskEntityResponse(TaskEntity taskEntity) {
         return mapper.map(taskEntity, TaskResponse.class);
     }
+
     public TaskResponse toTaskResponse(Task task) {
         return mapper.map(task, TaskResponse.class);
     }
@@ -35,5 +37,9 @@ public class TaskMapper {
 
     public Task taskEntityToTask(TaskEntity taskEntity) {
         return mapper.map(taskEntity, Task.class);
+    }
+
+    public TaskDevResponse toTaskDevResponse(Task task) {
+        return mapper.map(task, TaskDevResponse.class);
     }
 }

@@ -26,9 +26,15 @@ public class JoinDevTaskAdapter implements JoinDevTaskPort {
     public Task joinDevTask(UUID idDev, UUID idTask) {
         DeveloperEntity devFind = findDeveloperAdapter.findDeveloperDB(idDev);
         TaskEntity taskFind = findTaskDB(idTask);
+
         if (!taskFind.getStatus()) {
             throw new BusinessException("Task finished not possible join dev!");
         }
+
+        if (taskFind.getDeveloper() != null) {
+            throw new BusinessException("There is already dev in the task!");
+        }
+
         taskFind.setDeveloper(devFind);
         taskFind.setIdDeveloper(devFind.getId());
         taskRepository.save(taskFind);

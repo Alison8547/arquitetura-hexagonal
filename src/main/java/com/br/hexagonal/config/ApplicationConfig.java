@@ -32,4 +32,9 @@ public class ApplicationConfig {
     public TaskFinishedUserCaseImpl taskFinishedUserCase(TaskFinishedAdapter taskFinishedAdapter) {
         return new TaskFinishedUserCaseImpl(taskFinishedAdapter);
     }
+
+    @Bean
+    public ListFinishTasksUserCaseImpl listFinishTasksUserCase(ListFinishTasksAdapter listFinishTasksAdapter) {
+        return new ListFinishTasksUserCaseImpl(listFinishTasksAdapter);
+    }
 }

@@ -37,4 +37,9 @@ public class ApplicationConfig {
     public ListFinishTasksUserCaseImpl listFinishTasksUserCase(ListFinishTasksAdapter listFinishTasksAdapter) {
         return new ListFinishTasksUserCaseImpl(listFinishTasksAdapter);
     }
+
+    @Bean
+    public JoinDevTaskUserCaseImpl joinDevTaskUserCase(JoinDevTaskAdapter joinDevTaskAdapter) {
+        return new JoinDevTaskUserCaseImpl(joinDevTaskAdapter);
+    }
 }

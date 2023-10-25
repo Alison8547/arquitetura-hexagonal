@@ -14,10 +14,6 @@ public class DeveloperMapper {
 
     private final ModelMapper mapper;
 
-    public DeveloperEntity toDeveloperEntity(DeveloperRequest developerRequest) {
-        return mapper.map(developerRequest, DeveloperEntity.class);
-    }
-
     public Developer toDeveloper(DeveloperRequest developerRequest) {
         return mapper.map(developerRequest, Developer.class);
     }

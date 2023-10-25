@@ -15,16 +15,8 @@ public class TaskMapper {
 
     private final ModelMapper mapper;
 
-    public TaskEntity toTaskEntity(TaskRequest taskRequest) {
-        return mapper.map(taskRequest, TaskEntity.class);
-    }
-
     public Task toTask(TaskRequest taskRequest) {
         return mapper.map(taskRequest, Task.class);
-    }
-
-    public TaskResponse toTaskEntityResponse(TaskEntity taskEntity) {
-        return mapper.map(taskEntity, TaskResponse.class);
     }
 
     public TaskResponse toTaskResponse(Task task) {
